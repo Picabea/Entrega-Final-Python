@@ -35,7 +35,7 @@ def crear_perfil(request):
                link = formulario_limpio['link']
             )
            perfil.save()
-           return render(request, 'index.html')
+           return render(request, 'index.html', {'info': True})
     else:
        formulario = PerfilForm
     return render(request, 'AppCoder/perfil_form.html', {'form': formulario})
@@ -56,7 +56,9 @@ def editar_usuario(request):
             usuario.password2 = informacion['password2']
 
             usuario.save()
-            return render(request, 'index.html')
+            return render(request, 'index.html', {'info': True})
+        else:
+            return render(request, 'AppCoder/admin_update.html', {'form': usuario_form, 'usuario': usuario, 'mensaje': 'Debes modificar todos los campos'})
     else:
         usuario_form = UserEditForm(initial={'username': usuario.username, 'email': usuario.email})
 

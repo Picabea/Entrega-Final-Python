@@ -30,7 +30,7 @@ def crear_comentario(request, id):
             comentario = Comentario(autor=autor, cuerpo=formulario_limpio['cuerpo'], publicacion=id)
             
             comentario.save()
-            return render(request, 'index.html')
+            return render(request, 'index.html', {'info': True})
     else:
         formulario = CrearComentario()
     return render(request, 'crear_comentario.html', {'formulario': formulario})

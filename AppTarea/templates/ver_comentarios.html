@@ -10,10 +10,14 @@
         
     {% endfor %}
     </ul>
+    <button>
+        <a href="{% url 'Publicacion Detail' publicacion_id %}">Volver a la publicacion</a>
+    </button> 
 {% else %}
-    <p> No hay datos </p>
+    <p> No hay comentarios aún </p>
+
 {% endif %}
-<button>
-    <a href="{% url 'Publicacion Detail' publicacion_id %}">Volver a la publicacion</a>
-</button>    
+   <button>
+        <a href="{% url 'Publicacion List' 'todo' %}">Volver a la lista de publicaciones</a>
+    </button> 
 {% endblock codigoindex %}

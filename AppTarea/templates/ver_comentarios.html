@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% block codigoindex %}
+{% if comentarios %}
+    <ul>
+    <h1>Comentarios de la publicacion: </h1>
+    {% for comentario in comentarios %}
+        <h3>Comentario de {{comentario.autor}}:</h3>
+        <p>{{comentario.cuerpo}}</p>
+        
+        
+    {% endfor %}
+    </ul>
+{% else %}
+    <p> No hay datos </p>
+{% endif %}
+<button>
+    <a href="{% url 'Publicacion Detail' publicacion_id %}">Volver a la publicacion</a>
+</button>    
+{% endblock codigoindex %}
